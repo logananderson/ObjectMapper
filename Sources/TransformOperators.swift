@@ -452,7 +452,7 @@ public func <- <Transform: TransformType>(left: inout Array<Array<Transform.Obje
 	let (map, transform) = right
 	if map.mappingType == .fromJSON && map.isKeyPresent, let original2DArray = map.currentValue as? [[AnyObject]]{
 		let transformed2DArray = original2DArray.flatMap { values in
-			fromJSONArrayWithTransform(values as AnyObject?, transform: transform)
+			fromJSONArrayWithTransform(values as Any?, transform: transform)
 		}
 		FromJSON.basicType(&left, object: transformed2DArray)
 	} else if map.mappingType == .toJSON {
@@ -476,7 +476,7 @@ public func <- <Transform: TransformType>(left:inout Array<Array<Transform.Objec
 	let (map, transform) = right
 	if map.mappingType == .fromJSON && map.isKeyPresent, let original2DArray = map.currentValue as? [[AnyObject]]{
 		let transformed2DArray = original2DArray.flatMap { values in
-			fromJSONArrayWithTransform(values as AnyObject?, transform: transform)
+			fromJSONArrayWithTransform(values as Any?, transform: transform)
 		}
 		FromJSON.optionalBasicType(&left, object: transformed2DArray)
 	} else if map.mappingType == .toJSON {
@@ -500,7 +500,7 @@ public func <- <Transform: TransformType>(left: inout Array<Array<Transform.Obje
 	let (map, transform) = right
 	if map.mappingType == .fromJSON && map.isKeyPresent, let original2DArray = map.currentValue as? [[AnyObject]] {
 		let transformed2DArray = original2DArray.flatMap { values in
-			fromJSONArrayWithTransform(values as AnyObject?, transform: transform)
+			fromJSONArrayWithTransform(values as Any?, transform: transform)
 		}
 		FromJSON.optionalBasicType(&left, object: transformed2DArray)
 	} else if map.mappingType == .toJSON {
